@@ -1,0 +1,12 @@
+.container {
+  background-color: #9cdad1;
+  width: 60%;
+  margin: auto;
+  box-shadow: 10px 6px 5px 0px #755175;
+}
+.container li:nth-child(1) {
+  background-color: aliceblue;
+}
+form {
+  padding: 15px;
+}
