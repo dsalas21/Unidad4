@@ -61,65 +61,46 @@
 
             
             <main class="col-md-9 ms-sm-auto col-lg-10 px-4">
-                <!-- Slider -->
-                <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="https://via.placeholder.com/800x400" class="d-block w-100" alt="Slide 1">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="https://via.placeholder.com/800x400" class="d-block w-100" alt="Slide 2">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="https://via.placeholder.com/800x400" class="d-block w-100" alt="Slide 3">
-                        </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Anterior</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Siguiente</span>
-                    </button>
-                </main>
+                <div class="container mt-4">  <div class="row">  <div class="card" style="width: 18rem;">
+                      <img src="..." class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <a href="#" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#cuestionarioModal">Editar</a>
 
-                
-                <div class="container mt-4">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="card">
-                                <img src="https://via.placeholder.com/300" class="card-img-top" alt="Card 1">
-                                <div class="card-body">
-                                    <h5 class="card-title">Título de la Tarjeta 1</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim veniam, beatae assumenda qui quidem mollitia cupiditate repellat voluptatum, voluptatem architecto dignissimos est voluptates, rem quae praesentium consequuntur autem dolore recusandae.</p>
-                                    <a href="#" class="btn btn-primary">Ir </a>
+                        <div class="modal fade" id="cuestionarioModal" tabindex="-1" aria-labelledby="cuestionarioModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="cuestionarioModalLabel">Cuestionario</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card">
-                                <img src="https://via.placeholder.com/300" class="card-img-top" alt="Card 2">
-                                <div class="card-body">
-                                    <h5 class="card-title">Título de la Tarjeta 2</h5>
-                                    <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa, laudantium voluptatibus sapiente, dolorem quasi et labore nisi maxime cumque quas totam mollitia voluptatum veritatis quae sunt consectetur quos nesciunt doloremque!</p>
-                                    <a href="#" class="btn btn-primary">Ir</a>
+                                <div class="modal-body">
+                                  <form>
+                                    <div class="mb-3">
+                                      <label for="email" class="form-label">Correo Electronico</label>
+                                      <input type="email" class="form-control" id="email">
+                                      <label for="password" class="form-label">Contraseña</label>
+                                      <input type="password" class="form-control" id="password">
+                                    </div>
+                                    </form>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card">
-                                <img src="https://via.placeholder.com/300" class="card-img-top" alt="Card 3">
-                                <div class="card-body">
-                                    <h5 class="card-title">Título de la Tarjeta 3</h5>
-                                    <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat aut cumque voluptatum facilis, nam excepturi, a, cupiditate maxime voluptates molestiae in velit iusto ratione error. Voluptate ut adipisci quos ex!</p>
-                                    <a href="#" class="btn btn-primary">Ir </a>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                  <button type="button" class="btn btn-primary">Guardar</button>
                                 </div>
+                              </div>
                             </div>
-                        </div>
+                          </div>
+                        
+                      </div>
                     </div>
-            </main>
-        </div>
+                  </div>
+                </div>
+              </main>
+    
+    
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
