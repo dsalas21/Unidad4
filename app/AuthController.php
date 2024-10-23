@@ -39,7 +39,10 @@ class AuthController {
         if (curl_errno($curl)) {
             echo 'Error:' . curl_error($curl);
         } else {
-            echo $response; 
+         //   echo $response; 
+
+         header('Location: ../home.html');
+
         }
 
         curl_close($curl);
