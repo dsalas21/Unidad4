@@ -41,7 +41,7 @@ class AuthController {
         } else {
          //   echo $response; 
 
-         header('Location: ../home.html');
+         header('Location: ../home.php');
 
         }
 
