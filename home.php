@@ -1,4 +1,3 @@
-
 <?php include 'app/cards.php'; ?>
 
 <!DOCTYPE html>
@@ -74,13 +73,13 @@
                         <?php foreach ($products as $product): ?>
                             <div class="col-md-4 mb-4">
                                 <div class="card" style="width: 18rem;">
-                                <img src="<?= $product['cover'] ?>" class="card-img-top">
+                                    <img src="<?= $product['cover'] ?>" class="card-img-top">
                                     <div class="card-body">
                                         <h5 class="card-title"><?= htmlspecialchars($product['name']) ?></h5>
                                         <p class="card-text"><?= htmlspecialchars($product['description']) ?></p>
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                                        <a href="details.php?slug=<?= $product['slug'] ?>" class="btn btn-primary">Ver detalles</a>
                                         <a href="#" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#cuestionarioModal">Editar</a>
-            
+
                                         <!-- Modal -->
                                         <div class="modal fade" id="cuestionarioModal" tabindex="-1" aria-labelledby="cuestionarioModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
@@ -113,7 +112,7 @@
                     </div>
                 </div>
             </main>
-            
+
 
 
         </div>
@@ -122,7 +121,7 @@
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
             crossorigin="anonymous"></script>
 
-      
+
 </body>
 
 </html>
