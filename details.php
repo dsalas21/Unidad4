@@ -1,4 +1,4 @@
-<?php include 'app/detailsCards.php'; ?>
+<?php include 'app/detailsCard.php'; ?>
 
 <!DOCTYPE html>
 <html lang="es">
