@@ -68,6 +68,52 @@
 
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-4">
+                <h2>Lista de productos</h2>
+                <a href="#" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#addProductModal">Agregar Producto</a>
+
+                <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="addProductModalLabel">Agregar Producto</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="./app/addCard.php" method="POST" enctype="multipart/form-data">
+                                    <div class="mb-3">
+                                        <label for="name" class="form-label">Nombre</label>
+                                        <input type="text" class="form-control" id="name" name="name" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="slug" class="form-label">Slug</label>
+                                        <input type="text" class="form-control" id="slug" name="slug" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="description" class="form-label">Descripción</label>
+                                        <textarea class="form-control" id="description" name="description"></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="features" class="form-label">Características</label>
+                                        <textarea class="form-control" id="features" name="features"></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="cover" class="form-label">Imagen de portada</label>
+                                        <input type="file" class="form-control" id="cover" name="cover" required>
+                                    </div>
+                                    <input type="hidden" name="brand_id" value="1">
+                                    <input type="hidden" name="categories[0]" value="3">
+                                    <input type="hidden" name="categories[1]" value="4">
+                                    <input type="hidden" name="tags[0]" value="3">
+                                    <input type="hidden" name="tags[1]" value="4">
+                                    <button type="submit" class="btn btn-primary">Guardar Producto</button>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="container mt-4">
                     <div class="row">
                         <?php foreach ($products as $product): ?>
