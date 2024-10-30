@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 if (isset($_POST['action'])) {
     switch ($_POST['action']) {
         case 'login':
@@ -35,17 +35,18 @@ class AuthController {
         ));
 
         $response = curl_exec($curl);
+        curl_close($curl);
+        $response = json_decode($response);
 
-        if (curl_errno($curl)) {
-            echo 'Error:' . curl_error($curl);
-        } else {
-         //   echo $response; 
+        if (isset($response->data)  && is_object($response->data)) {
+				
 
-         header('Location: ../home.php');
-
+            $_SESSION['user_data'] = $response->data;
+            header("Location: ../home.php");
+        }else{
+            header("Location: ../index.html");
         }
 
-        curl_close($curl);
     }
 }
 ?>
