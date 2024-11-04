@@ -22,7 +22,8 @@
     <div class="card-body p-4">
         <p class="card-text"><strong>Descripción:</strong> <?= $producto->description ?></p>
         <p class="card-text"><strong>Características:</strong> <?= $producto->features ?></p>
-        <p class="card-text"><strong>Marca:</strong> <?= $producto->slug ?></p>
+        <p class="card-text"><strong>Etiqueta:</strong> <?= $producto->slug ?></p>
+        <!-- <p class="card-text"><strong>Marca:</strong> <?= $producto->brand ?></p> -->
     </div>
 </main>
 

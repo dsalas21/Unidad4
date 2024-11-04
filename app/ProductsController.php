@@ -73,7 +73,7 @@ class ProductsController
 		$response = curl_exec($curl);
 		curl_close($curl);  
 		$response = json_decode($response);
-      //  echo  json_encode($response);
+     //   echo  json_encode($response);
 
 
 		if (isset($response->code) && $response->code > 0) {

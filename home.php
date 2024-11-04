@@ -1,7 +1,11 @@
 <?php
 include_once "app/ProductsController.php";
+include_once "app/BrandsController.php";
 $productsController = new ProductsController();
 $productos = $productsController->get();
+$brandsController = new  BrandsController();
+$brands = $brandsController->get();
+
 
 ?>
 
@@ -22,9 +26,6 @@ $productos = $productsController->get();
         .sidebar {
             min-height: 100vh;
         }
-
-
-
     </style>
 </head>
 
@@ -107,8 +108,25 @@ $productos = $productsController->get();
 
                                     <div class="mb-3">
                                         <label for="image" class="form-label">Imagen del producto</label>
-                                        <input type="file" class="form-control" id="cover" name="cover" accept="image/*" >
+                                        <input type="file" class="form-control" id="cover" name="cover" accept="image/*">
                                     </div>
+
+                                    <div class="mb-3">
+                                        <label for="brand" class="form-label">Marca</label>
+                                        <select class="form-control">
+                                            <?php if (isset($brands) && count($brands)): ?>
+                                                <?php foreach ($brands as $brand): ?>
+                                                    <option value="<?= $brand->id ?>">
+                                                    <?= $brand->name ?>
+                                                    </option>
+                                                <?php endforeach ?>
+                                            <?php endif ?>
+
+                                        </select>
+
+                                    </div>
+
+
 
                                     <button type="submit" class="btn btn-primary">Guardar Producto</button>
                                     <input type="hidden" name="action" value="addProduct">
