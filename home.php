@@ -117,7 +117,7 @@ $brands = $brandsController->get();
                                             <?php if (isset($brands) && count($brands)): ?>
                                                 <?php foreach ($brands as $brand): ?>
                                                     <option value="<?= $brand->id ?>">
-                                                    <?= $brand->name ?>
+                                                        <?= $brand->name ?>
                                                     </option>
                                                 <?php endforeach ?>
                                             <?php endif ?>
@@ -150,7 +150,9 @@ $brands = $brandsController->get();
                                         <div class="card-body">
                                             <h5 class="card-title"><?= $product->name ?></h5>
                                             <p class="card-text"><?= $product->description ?> </p>
-                                            <a href="details.php?slug=<?= $product->slug ?>" class="btn btn-primary">Ver detalles</a>
+                                            <a href="../producto/<?= $product->slug ?>" class="btn btn-primary">Ver detalles</a>
+
+
                                             <a href="#" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#cuestionarioModal">Editar</a>
                                             <button onclick="deleteProduct(<?= $product->id ?>)" type="button" class="btn btn-danger m-2">Eliminar</button>
 

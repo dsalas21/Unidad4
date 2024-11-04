@@ -73,8 +73,8 @@ class ProductsController
 		$response = curl_exec($curl);
 		curl_close($curl);  
 		$response = json_decode($response);
-     //   echo  json_encode($response);
-
+     
+		//echo  json_encode($response);
 
 		if (isset($response->code) && $response->code > 0) {
 			
@@ -85,6 +85,8 @@ class ProductsController
 		}
 
 	}
+
+	
 
 	public function getBySlug($slug)
 	{
@@ -169,13 +171,12 @@ class ProductsController
 		$response = json_decode($response);
 
 
-		if (isset($response->code) && $response->code >0) {
-			
-			header('Location: ../home.php?status=ok');
-		}else{
-			header('Location: ../home.php?status=error');
-            
+		if (isset($response->code) && $response->code > 0) {
+			header('Location: ../inicio/ok');
+		} else {
+			header('Location: ../inicio/error');
 		}
+		
 
     }
 
@@ -202,12 +203,12 @@ class ProductsController
 		$response = json_decode($response);
 
 
-		if (isset($response->code) && $response->code >0) {
-			
-			header('Location: ../home.php?status=ok');
-		}else{
-			header('Location: ../home.php?status=error');
+		if (isset($response->code) && $response->code > 0) {
+			header('Location: ../inicio/ok');
+		} else {
+			header('Location: ../inicio/error');
 		}
+		
     
     }
 
