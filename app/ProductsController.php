@@ -14,8 +14,9 @@
                 $slug = $_POST['slug'];
                 $description = $_POST['description'];
                 $features = $_POST['features'];
+				$cover = isset($_FILES['cover']) ? $_FILES['cover'] : null;
                 $producController = new ProductsController();
-                $producController->addProduct($name,$slug,$description,$features);
+                $producController->addProduct($name,$slug,$description,$features,$cover);
     
             break;
     
@@ -118,9 +119,35 @@ class ProductsController
 	}
 
 
-    public function addProduct($name,$slug,$description,$features){
+    public function addProduct($name,$slug,$description,$features,$cover){
        
         $curl = curl_init();
+
+		if ($cover && $cover['error'] === UPLOAD_ERR_OK) {
+			$imagePath = $cover['tmp_name'];
+			$imageName = $cover['name'];
+			$imageType = $cover['type'];
+		} else {
+			$imagePath = null;
+			$imageName = null;
+			$imageType = null;
+		}
+
+
+		$postData = array(
+			'name' => $name,
+			'slug' => $slug,
+			'description' => $description,
+			'features' => $features,
+		);
+
+		if ($imagePath) {
+			$postData['cover'] = new CURLFile($imagePath, $imageType, $imageName);
+		}
+
+
+
+
 
 		curl_setopt_array($curl, array(
 		  CURLOPT_URL => 'https://crud.jonathansoto.mx/api/products',
@@ -131,12 +158,7 @@ class ProductsController
 		  CURLOPT_FOLLOWLOCATION => true,
 		  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
 		  CURLOPT_CUSTOMREQUEST => 'POST',
-		  CURLOPT_POSTFIELDS => array(
-		  	'name' => $name,
-		  	'slug' => $slug,
-		  	'description' => $description,
-		  	'features' => $features
-		  ),
+		  CURLOPT_POSTFIELDS => $postData,
 		  CURLOPT_HTTPHEADER => array(
 		    'Authorization: Bearer '.$_SESSION['user_data']->token
 		  ),

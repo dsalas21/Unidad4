@@ -22,6 +22,9 @@ $productos = $productsController->get();
         .sidebar {
             min-height: 100vh;
         }
+
+
+
     </style>
 </head>
 
@@ -84,7 +87,7 @@ $productos = $productsController->get();
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <form method="POST" action="app/ProductsController.php">
+                                <form method="POST" action="app/ProductsController.php" enctype="multipart/form-data">
                                     <div class="mb-3">
                                         <label for="name" class="form-label">Nombre</label>
                                         <input type="text" class="form-control" id="name" name="name" required>
@@ -100,6 +103,11 @@ $productos = $productsController->get();
                                     <div class="mb-3">
                                         <label for="features" class="form-label">Características</label>
                                         <textarea class="form-control" id="features" name="features"></textarea>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="image" class="form-label">Imagen del producto</label>
+                                        <input type="file" class="form-control" id="cover" name="cover" accept="image/*" >
                                     </div>
 
                                     <button type="submit" class="btn btn-primary">Guardar Producto</button>
@@ -118,7 +126,7 @@ $productos = $productsController->get();
                     <div class="row">
                         <?php if (isset($productos) && count($productos)): ?>
                             <?php foreach ($productos as $product): ?>
-                                <div class="col-md-4 mb-4">
+                                <div class="col-md-4 mb-4 h-100">
                                     <div class="card" style="width: 18rem;">
                                         <img src="<?= $product->cover ?>" class="card-img-top" alt="...">
                                         <div class="card-body">
