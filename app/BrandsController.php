@@ -1,17 +1,14 @@
 <?php 
-if (!isset($_SESSION)) {
-	session_start();
-}
 
-
-
-class BrandsController
+/**
+ * 
+ */
+class BrandsController 
 {
-
-
-    public function get()
+	
+	public function get()
 	{
-		$curl = curl_init();
+		$curl = curl_init();  
 
 		curl_setopt_array($curl, array(
 		  CURLOPT_URL => 'https://crud.jonathansoto.mx/api/brands',
@@ -27,18 +24,19 @@ class BrandsController
 		  ),
 		));
 
-		$response = curl_exec($curl); 
-		curl_close($curl);
+		$response = curl_exec($curl);
+		curl_close($curl);  
 		$response = json_decode($response);
 
-		if (isset($response->data) && count($response->data)) {
+		if (isset($response->code) && $response->code > 0) {
 			
 			return $response->data;
+
+		}else{
+			return [];
 		}
 
-		return array();
 	}
-
 }
 
 ?>
